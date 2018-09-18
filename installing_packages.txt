@@ -1,0 +1,191 @@
+# *Pygrib Installation*
+
+required:
+* Python
+* numpy
+* pyproj
+* GRIB API
+
+It is necessary to install dipendencies:
+
+a openjpeg o jasper to suport jpeg conversion
+
+*Install OpenJpeg*
+https://www.howtoinstall.co/it/ubuntu/xenial/openjpeg-tools
+from repository
+https://github.com/uclouvain/openjpeg
+
+*install Jasper*
+https://www.howtoinstall.co/it/ubuntu/xenial/jasper
+
++++++NOTE+++++
+install openjpeg and jasper with synaptic (dev-libraries must be installated)
+
+*install GRIB_API*
+https://software.ecmwf.int/wiki/display/GRIB/Home
+
+- installing into directory */usr/lib*
+- /usr/lib/grib_api_dir
+- ./configure --prefix=/usr/lib/grib_api_dir
+
+
+
+Download grib API from
+https://software.ecmwf.int/wiki/display/GRIB/Releases
+
+Follow the instruction present here:
+https://software.ecmwf.int/wiki/display/GRIB/GRIB+API+Autotools+installation
+
+note:
+the libraries will be installed on the path you give
+
+
+
+in the end, it will be visualized
+
+
+*installing basemap*
+
+matplotlib toolkit library used for visualization
+
+https://github.com/matplotlib/basemap
+
+
+Requirements
+
+- Python 2.6 (or higher)
+- matplotlib
+- numpy
+- pyproj
+- pyshp
+- GEOS library
+
+
+
+Checking version of geos:
+	`geos-config --version`
+
+
+
+
+
+## step for installation
+
+1. download download basemap-X.Y.Z.tar.gz from https://github.com/matplotlib/basemap/releases
+2. unzip the file `tar xf basemap-X.Y.Z.tar.gz`
+3. install GEOS if not present on your system with these steps
+			`cd basemap-X.Y.Z`
+			`cd geos-3.3.3`
+			`export GEOS_DIR=/usr/local`
+	Asked location for:
+	- `libgeos_c`
+	- `geos_c.h` : location `/usr/include/geos_c.h`
+	if libgeos_c is in /usr/local/lib and geos_c.h is in /usr/local/include, set GEOS_DIR to /usr/local
+	`./configure --prefix=$GEOS_DIR`
+	`make`
+	`make install`
+
+
+if geos is present *just avoid step 3*
+
+4. `export GEOS_DIR=/usr/local`
+5. `sudo python setup.py install`
+6. check the correct installation with `from mpl_toolkits.basemap import Basemap`
+7. installing `Pillow==3.1.2`
+	`sudo -H pip install Pillow==3.1.2`
+8. To test,
+	`cd examples`
+	run `python simpletest.py`
+	To run all the examples (except those that have extra dependencies or require an internet connection),
+	execute `python run_all.py`
+
+********************************************************************************
+if matplotlib is not displaying grapf and plot, it might be operating on backend
+
+*To prove that, make the following steps*
+
+on the kernel of python
+  	`import matplotlib`
+
+		`matplotlib.get_backend()`
+
+		outputs:
+		`u'TkAgg'` ok
+		`u'agg'` not ok
+
+we need to install tkinter
+More info on:
+https://stackoverflow.com/questions/4783810/install-tkinter-for-python
+
+- installing tkinter
+`sudo apt-get install tcl-dev tk-dev python-tk python3-tk`
+
+on the kernel of python
+	`matplotlib.rcParams["backend"] = "TkAgg"`
+
+
+fixing error customizing matplotlib default setting
+matplotlibrc finding location:
+
+	python -c "import matplotlib; print(matplotlib.matplotlib_fname())"
+	/usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/matplotlibrc
+
+	sudo gedit /usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/matplotlibrc
+
+	search backend and change it from
+	`agg` to `TkAgg`
+
+	sudo apt-get install tk-dev
+	pip uninstall -y matplotlib
+	pip --no-cache-dir install -U matplotlib
+
+
+*Installing pyshp*
+
+https://stackoverflow.com/questions/22891332/installing-shapefile-shapelib-not-found-via-conda-or-pip
+https://github.com/GeospatialPython/pyshp
+
+`pip install pyshp
+pip install astropy
+`
+
+##installing pygrib##
+
+1. clone the github repository
+	`git clone https://github.com/jswhit/pygrib.git`
+	or download the source from https://pypi.python.org/pypi/pygrib
+	`sudo -H pip install pygrib`
+
+2. Copy `setup.cfg.template` to `setup.cfg`
+3. open it with the text editor and change path for libraries used
+		`grib_api_dir = /usr/lib/grib_api_dir/`
+		`jasper_dir = /usr/local`
+
+4. Run `python setup.py build`
+5. Run `sudo python setup.py install`
+6. Run `python test.py` to test your pygrib installation.
+	expected output  
+		Test passed.
+		using GRIB API version 1.25.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************
+update cuz not working jupiter
+
+
+Successfully installed decorator-4.3.0 futures-3.2.0 ipython-genutils-0.2.0 jupyter-client-5.2.3 jupyter-core-4.4.0 pyzmq-17.0.0 six-1.11.0 tornado-5.0.2 traitlets-4.3.2
+
+Successfully installed ipython-5.6.0 pathlib2-2.3.2 pexpect-4.5.0 ptyprocess-0.5.2 pygments-2.2.0 scandir-1.7 setuptools-39.1.0
