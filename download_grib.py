@@ -39,19 +39,28 @@ ftp.cwd(path)
 # for g in griblist:
 #     os.remove(os.path.join(input_path, g))
 
-path_download = "/home/gloria/the-python-space-adventure/pollutants/"+data2
-os.chdir(path_download)
+path_download = "/home/gloria/the-python-space-adventure/pollutants/"+data2+"/"
 
 for cont in contaminator:
+    os.chdir(path_download)
+    print path_download
     filename = 'z_cams_c_ecmf_'+data2+'000000_prod_fc_sfc_hour_param.grib'
     indicators = filename.replace("param", cont)
+    if not os.path.exists(cont):
+        os.makedirs(cont)
+    path_cont = "/home/gloria/the-python-space-adventure/pollutants/"+data2+"/"+cont
+    os.chdir(path_cont)
     for hour in list_hours:
         hour = str(hour)
         filename = indicators.replace("hour", hour)
         ftp.retrbinary("RETR " + filename ,open(filename, 'wb').write)
         print 'Downloading ', filename, '...'
 
-
+os.chdir(path_download)
+if not os.path.exists('o3'):
+    os.makedirs('o3')
+path_o3 = "/home/gloria/the-python-space-adventure/pollutants/"+data2+"/o3"
+os.chdir(path_o3)
 o3_hour = ['024', '027', '030',  '033',
             '036', '039', '042', '045' ]
 for hour in o3_hour:
