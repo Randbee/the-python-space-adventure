@@ -138,7 +138,9 @@ for hours in list_hours:
 
 
     ## particular matter ##
-    grb['values'] = data_pm0 * 1000000 #pass to kg to mg
+    min_value_pm = data_pm0.min()
+    max_value_pm = data_pm0.max()
+    grb['values'] = (data_pm0 - min_value_pm) / (max_value_pm - min_value_pm)
     pm = 'pm_'+ hour + '.grib'
     print pm
     grbout = open(pm,'wb')
@@ -148,7 +150,9 @@ for hours in list_hours:
 
 
     ## ultra violet index ##
-    grb['values'] = data_uv0
+    min_value_uv = data_uv0.min()
+    max_value_uv = data_uv0.max()
+    grb['values'] = (data_uv0 - min_value_uv) / (max_value_uv - min_value_uv)
     uvi = 'uvi_'+ hour + '.grib'
     print uvi
     grbout = open(uvi,'wb')
@@ -157,7 +161,9 @@ for hours in list_hours:
     grbout.close()
 
     ## nox ##
-    grb['values'] = data_nox0 * 1000000 #pass to kg to mg
+    min_value_nox = data_nox0.min()
+    max_value_nox = data_nox0.max()
+    grb['values'] = (data_nox0 - min_value_nox) / (max_value_nox - min_value_nox)
     nox = 'nox_'+ hour + '.grib'
     print nox
     grbout = open(nox,'wb')
@@ -194,8 +200,9 @@ for hours in o3_hour:
     ########## UNIT value for ozone, kg/kg  ##########
     ## 1000 from kg to g
     ## 1000 grom kg to mg
-
-    grb['values'] = data_o3_0 * 1000000
+    min_value_o3 = data_o3_0.min()
+    max_value_o3 = data_o3_0.max()
+    grb['values'] = (data_o3_0 - min_value_o3) / (max_value_o3 - min_value_o3)
     o3 = 'o3_'+ hour + '.grib'
     print o3
     grbout = open(o3,'wb')
