@@ -1,2 +1,3 @@
 pollutants/20180919/o3/animation_o3.gif
-.ipynb_checkpoints/
+.*
+!/.gitignore
