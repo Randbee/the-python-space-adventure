@@ -16,6 +16,15 @@ CAMS, in particular, provides data and services regarding:
 * Solar radiation
 * Emissions & surface fluxes
 
+## Data used
+
+For this purpose we are using data regarding the following products :
+
+* NOx concentration at ground level
+* O3 Concentration at ground level
+* PM1, 2.5 and 10 at ground level
+* Biological effective dose 
+
 ## Requirements
 
 * Ubuntu 16.04
