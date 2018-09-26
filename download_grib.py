@@ -36,7 +36,7 @@ if not os.path.exists(data2):
 
 #ftp connection
 ftp = ftplib.FTP("dissemination.ecmwf.int")
-ftp.login("juan.arevalo", "Swd75GxT")
+ftp.login("username", "password")
 
 ftp.cwd(path)
 
