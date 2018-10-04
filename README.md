@@ -23,7 +23,7 @@ For this purpose we are using data regarding the following products :
 * NOx concentration at ground level
 * O3 Concentration at ground level
 * PM1, 2.5 and 10 at ground level
-* Biological effective dose 
+* Biological effective dose
 
 ## Requirements
 
@@ -33,6 +33,7 @@ For this purpose we are using data regarding the following products :
 * matplotlib == 1.5.1
 * numpy == 1.11.0
 * jupyter == 1.0.0
+* at least 4 GB of RAM 
 
 ## Instructions
 
