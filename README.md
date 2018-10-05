@@ -1,6 +1,7 @@
 The Python Space Adventure
 ================================
 
+[!alt text](https://2018.es.pycon.org/static/web/svg/logo.svg)
 
 A simple grib data visualization with python.
 
@@ -33,7 +34,7 @@ For this purpose we are using data regarding the following products :
 * matplotlib == 1.5.1
 * numpy == 1.11.0
 * jupyter == 1.0.0
-* at least 4 GB of RAM 
+* at least 4 GB of RAM
 
 ## Instructions
 
