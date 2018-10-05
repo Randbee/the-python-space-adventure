@@ -1,7 +1,7 @@
 The Python Space Adventure
 ================================
 
-[!alt text](https://2018.es.pycon.org/static/web/svg/logo.svg)
+[!alt text](img/logo.jpg)
 
 A simple grib data visualization with python.
 
