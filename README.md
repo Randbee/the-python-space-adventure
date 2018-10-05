@@ -3,7 +3,7 @@ The Python Space Adventure
 
 ![picture](img/logo.jpg)
 
-A simple grib data visualization with python.
+Repositories for the PyConEs18 talk The Python Space Adventure
 
 Data used are freely distributed by Copernicus Atmosphere Monitoring Service [CAMS](https://atmosphere.copernicus.eu/).
 
