@@ -1,7 +1,7 @@
 The Python Space Adventure
 ================================
 
-[!alt text](img/logo.jpg)
+[!Alt text](img/logo.jpg)
 
 A simple grib data visualization with python.
 
